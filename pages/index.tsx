@@ -1,8 +1,9 @@
 import { GetStaticProps, NextPage } from 'next';
 import { Button } from '@nextui-org/react';
 import { Layout } from '../components/layouts';
+import { pokeApi } from '../api';
 
-const HomePage: NextPage = () => {
+const HomePage: NextPage = (props) => {
   return (
     <Layout title="Listado titulos">
       <Button color={'gradient'}>Hola Mundo</Button>
@@ -11,10 +12,12 @@ const HomePage: NextPage = () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  console.log('hola');
+
+  const { data } = await pokeApi.get('/pokemon?limit=151');
+
   return {
     props: {
-      name: 'Daniel'
+      pokemons: data.results
     }
   };
 };
