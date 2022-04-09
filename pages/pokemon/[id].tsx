@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { pokeApi } from '../../api';
 import { Pokemon } from '../../interfaces';
 import { Button, Card, Container, Grid, Image, Text } from '@nextui-org/react';
+import { localFavorites } from '../../utils';
 
 interface Props {
   pokemon: Pokemon;
@@ -12,9 +13,12 @@ interface Props {
 const PokemonPage: NextPage<Props> = ({ pokemon }) => {
   const { query } = useRouter();
 
+  const onToggleFavorite = () => {
+    localFavorites.toggleFavorite(pokemon.id);
+  };
 
   return (
-    <Layout title="Algun pokemon">
+    <Layout title={pokemon.name}>
 
       <Grid.Container css={{ marginTop: '5px' }} gap={2}>
         <Grid xs={12} sm={4}>
@@ -34,7 +38,7 @@ const PokemonPage: NextPage<Props> = ({ pokemon }) => {
             <Card.Header
               css={{ display: 'flex', justifyContent: 'space-between' }}>
               <Text h1 transform={'capitalize'}>{pokemon.name}</Text>
-              <Button color={'gradient'} ghost>
+              <Button color={'gradient'} ghost onClick={onToggleFavorite}>
                 save in favorites
               </Button>
             </Card.Header>
