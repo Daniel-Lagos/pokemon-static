@@ -1,1 +1,2 @@
-import * from './Navbar'
+export * from './Navbar';
+export * from './NoFavorites';
