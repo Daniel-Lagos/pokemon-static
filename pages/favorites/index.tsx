@@ -3,6 +3,7 @@ import { Layout } from '../../components/layouts';
 import { NoFavorites } from '../../components/ui';
 import { useEffect, useState } from 'react';
 import { localFavorites } from '../../utils';
+import { FavoritePokemons } from '../../components/pokemon/FavoritePokemons';
 
 
 const FavoritesPage: NextPage = () => {
@@ -16,7 +17,11 @@ const FavoritesPage: NextPage = () => {
 
   return (
     <Layout title={'favorites'}>
-      <NoFavorites/>
+      {
+        favoritePokemons.length === 0
+        ? <NoFavorites/>
+        : <FavoritePokemons pokemons={favoritePokemons}/>
+      }
 
     </Layout>
   );
