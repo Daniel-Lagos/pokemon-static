@@ -16,9 +16,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
       </Head>
       <NextUIProvider theme={darkTheme}>
-        <AdvertiserProvider>
+        {/* <AdvertiserProvider> */}
           <Component {...pageProps} />
-        </AdvertiserProvider>
+        {/* </AdvertiserProvider> */}
       </NextUIProvider>
     </>
   );

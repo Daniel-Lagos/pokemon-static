@@ -90,8 +90,8 @@ const HomePage: NextPage<Props> = ({ pokemons }) => {
         } */}
       </Grid.Container>
       <p>Divider</p>
-      <div id="Native_Top" style={{width: "928px", height: "220px"}}></div>
-      <div id="Robapagina_Top" style={{width: "928px", height: "220px"}}></div>
+      <div id="banner-ad-1" style={{width: "928px", height: "220px"}}></div>
+      <div id="banner-ad-2" style={{width: "928px", height: "220px"}}></div>
     </Layout>
   );
 };
